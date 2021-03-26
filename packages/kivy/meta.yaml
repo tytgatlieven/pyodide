@@ -5,6 +5,12 @@ source:
   sha256: d25e44eb44e43762b2fd0c5874e51954e0f1181fd9800d8a6756be6d084812d8
   #url: https://files.pythonhosted.org/packages/12/96/091ddacafb84dd18555a32d860dbfaf9c806147aa30c6f3c8b93cb7bab97/Kivy-2.0.0.tar.gz
   path: /src/kivy
+
+build:
+  cflags: -s USE_SDL=2 -s USE_SDL_TTF=2 -s USE_SDL_IMAGE=2 -s USE_SDL_MIXER=2 -Wno-implicit-function-declaration
+  ldflags: -s USE_SDL=2 -s USE_SDL_TTF=2 -s USE_SDL_IMAGE=2 -s USE_SDL_MIXER=2
+  #environment: KIVY_SDL2_PATH="/src/emsdk/emsdk/upstream/emscripten/system/include/SDL/"
+
 test:
   imports:
   - kivy
