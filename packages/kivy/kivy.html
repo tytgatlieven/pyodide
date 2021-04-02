@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <script type="text/javascript">
+      // set the Pyodide files URL (packages.json, pyodide.asm.data etc)
+      window.languagePluginUrl = 'http://localhost:8000/';
+  </script>
+  <script type="text/javascript" src="http://localhost:8000/pyodide.js"></script>
+  <script type="text/javascript">
+  // Documentation: https://kivy.org/doc/stable/guide/environment.html?highlight=sdl2
+    pythonCode = `
+      import os
+      os.environ['KIVY_WINDOW'] = 'sdl2'
+      os.environ['KIVY_AUDIO'] = 'sdl2'
+      os.environ['KIVY_VIDEO'] = 'null'
+      os.environ['KIVY_IMAGE'] = 'sdl2'
+      os.environ['KIVY_GL_BACKEND'] = 'sdl2'
+      import kivy
+      from kivy.app import App
+      from kivy.uix.label import Label
+      class MyApp(App):
+        def build(self):
+          return Label(text='Hello world')
+
+      MyApp().run()
+    `
+
+    languagePluginLoader.then(() => {
+      pyodide.runPython(pythonCode);
+    })
+  </script>
+</body>
+</html>
