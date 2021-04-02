@@ -1,0 +1,2 @@
+echo Running buildscript
+export KIVY_CROSS_PLATFORM=emscripten
