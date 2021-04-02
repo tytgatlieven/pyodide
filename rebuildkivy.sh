@@ -1,2 +1,2 @@
 rm -r packages/kivy/build
-make
+EXTRA_CFLAGS="-D DEBUG_F" make
