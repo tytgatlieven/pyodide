@@ -14,12 +14,18 @@
       import os
       os.environ['KIVY_WINDOW'] = 'sdl2'
       os.environ['KIVY_AUDIO'] = 'sdl2'
-      os.environ['KIVY_VIDEO'] = 'null'
+      os.environ['KIVY_VIDEO'] = 'ffpyplayer'
       os.environ['KIVY_IMAGE'] = 'sdl2'
       os.environ['KIVY_GL_BACKEND'] = 'sdl2'
+      os.environ['KCFG_KIVY_LOG_LEVEL'] = 'trace'
+      os.environ['KIVY_BUILD'] = 'emscripten'
+      import PIL
       import kivy
       from kivy.app import App
       from kivy.uix.label import Label
+      from kivy.config import Config
+      Config.set('graphics', 'width', '200')
+      Config.set('graphics', 'height', '200')
       class MyApp(App):
         def build(self):
           return Label(text='Hello world')
@@ -28,7 +34,8 @@
     `
 
     languagePluginLoader.then(() => {
-      pyodide.runPython(pythonCode);
+      pyodide.loadPackage(['kivy','pillow']).then(() => {
+      pyodide.runPython(pythonCode)});
     })
   </script>
 </body>
