@@ -10,7 +10,7 @@ build:
   cflags: -s USE_SDL=2 -s USE_SDL_TTF=2 -s USE_SDL_IMAGE=2 -s USE_SDL_MIXER=2 -Wno-implicit-function-declaration
   ldflags: -s USE_SDL=2 -s USE_SDL_TTF=2 -s USE_SDL_IMAGE=2 -s USE_SDL_MIXER=2
   #environment: KIVY_SDL2_PATH="/src/emsdk/emsdk/upstream/emscripten/system/include/SDL/"
-  script: /src/packages/kivy/build_script.sh
+#  script: /src/packages/kivy/build_script.sh
 
 test:
   imports:
