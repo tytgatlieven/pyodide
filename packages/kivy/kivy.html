@@ -18,15 +18,19 @@
       os.environ['KIVY_IMAGE'] = 'sdl2'
       os.environ['KIVY_GL_BACKEND'] = 'sdl2'
       os.environ['KCFG_KIVY_LOG_LEVEL'] = 'trace'
+      os.environ['KIVY_NO_ARGS'] = '1'
+      os.environ['KIVY_NO_CONFIG'] = '1'
       os.environ['KIVY_BUILD'] = 'emscripten'
-      import PIL
+      os.environ['KIVY_ORIENTATION'] = 'LandscapeLeft LandscapeRight Portrait PortraitUpsideDown'
+      # import PIL
       import kivy
       print(kivy.__dict__)
       from kivy.app import App
       from kivy.uix.label import Label
-      from kivy.config import Config
-      Config.set('graphics', 'width', '200')
-      Config.set('graphics', 'height', '200')
+      #from kivy.config import Config
+      #Config.set('graphics', 'width', '200')
+      #Config.set('graphics', 'height', '200')
+
       class MyApp(App):
         def build(self):
           return Label(text='Hello world')
@@ -35,7 +39,7 @@
     `
 
     languagePluginLoader.then(() => {
-      pyodide.loadPackage(['kivy','pillow']).then(() => {
+      pyodide.loadPackage(['kivy']).then(() => {
       pyodide.runPython(pythonCode)});
     })
   </script>
