@@ -41,6 +41,11 @@ LDFLAGS=\
 	-s WASM=1 \
 	-s USE_FREETYPE=1 \
 	-s USE_LIBPNG=1 \
+	-s USE_SDL=2 \
+	-s USE_SDL_TTF=2 \
+	-s USE_SDL_MIXER=2 \
+	-s USE_SDL_IMAGE=2 \
+	-s FULL_ES2=1 \
 	-std=c++14 \
 	-L$(wildcard $(CPYTHONROOT)/build/sqlite*/.libs) -lsqlite3 \
 	$(wildcard $(CPYTHONROOT)/build/bzip2*/libbz2.a) \
