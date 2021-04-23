@@ -1,4 +1,4 @@
-#include <SDL.h>
+#include "../kivy/kivy/lib/sdl2.h"
 #include <emscripten.h>
 #include <stdlib.h>
 
