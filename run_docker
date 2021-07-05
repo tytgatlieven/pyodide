@@ -98,6 +98,15 @@ case $DEFAULT_PYODIDE_SYSTEM_PORT in
   ;;
 esac
 
+# Print information
+echo "System Port (extern): $PYODIDE_SYSTEM_PORT"
+echo "Docker Port (intern): $PYODIDE_DOCKER_PORT"
+echo
+echo "1.Built environment with:     'make'"
+echo "2.Launch webserver with:      'bin/pyodide serve'"
+echo "3.Surf to:                    http://localhost:$PYODIDE_SYSTEM_PORT/console.html"
+echo " -or to:                      'SSH-ip-address':$PYODIDE_SYSTEM_PORT/console.html"
+
 mkdir -p .docker_home
 
 USER_HOME="/src/.docker_home"
@@ -114,6 +123,7 @@ USER_ACCOUNT_INFO="${USER_NAME}:${USER_PASS}:${USER_ID}:${USER_GID}:${USER_COMME
 CONTAINER=$(\
   docker run \
     -d --rm \
+    $PORT_CONFIGURATION_LINE \
     -v $PWD:/src \
     --user root \
     --shm-size 2g \
