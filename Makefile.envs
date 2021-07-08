@@ -43,9 +43,9 @@ export LDFLAGS_BASE=\
 	-std=c++14 \
 	-s LZ4=1 \
   -s USE_SDL=2 \
-	-s USE_SDL_TTF=2 \
+	#-s USE_SDL_TTF=2 \
 	-s USE_SDL_MIXER=2 \
-	-s USE_SDL_IMAGE=2 \
+	#-s USE_SDL_IMAGE=2 \
 	-s FULL_ES2=1 \
 	-L $(CPYTHONROOT)/installs/python-$(PYVERSION)/lib/ \
 	$(EXTRA_LDFLAGS)
